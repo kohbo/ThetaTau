@@ -26,4 +26,5 @@ if($_POST){
 	$data['success'] = true;
 	echo json_encode($data);
 }
+
 ?>
