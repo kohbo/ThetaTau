@@ -41,7 +41,11 @@
                 WHERE (big = 0)");
   echo '<div class="accordion family">';
   while($data = $result->fetch_array(MYSQLI_ASSOC)){
-    echo '<h3>'.$data['longFamily'].' - '.getName($data).'</h3><div>';
+    if ($data['ID'] != 7){
+      echo '<h3>'.$data['longFamily'].' - '.getName($data).'</h3><div>';
+    } else {
+      echo '<h3>'.$data['longFamily'].'</h3><div>';
+    }
     getTree($data, 1);
     echo '</div>';
   }
@@ -51,7 +55,7 @@
   function getTree($person, $depth){
     global $mysqli;
     $result2 = $mysqli->query("SELECT ID, firstName, middleName, lastName, big FROM tblBrothers WHERE big=".$person['ID']);
-    echo '<ul>';
+    echo '<ul class="fam">';
     while($subject = $result2->fetch_array(MYSQLI_ASSOC)){
       $result3 = $mysqli->query("SELECT ID, firstName, middleName, lastName, big FROM tblBrothers WHERE big=".$subject['ID']);
       echo '<li>'.getName($subject).'</li>';

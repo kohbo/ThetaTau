@@ -143,11 +143,11 @@ function PagesUtils(sectionUI){
          break;                                                                                                      
          case PagesUtils.FAMILY:
             $("li").css("list-style","none");
-            $("ul ul").css('font-size','100%');
+            $("ul .fam").css('font-size','100%');
             $(".accordion").accordion({ active:false, collapsible:true, heightStyle:"content" });
             $(".accordionsub").accordion({ collapsible:true, heightStyle:"content" });
-            $("ul li").css("background","url(/images/accordion/arrow.png) no-repeat left center");
-            $("ul li").css("padding","5px 16px");
+            $(".fam li").css("background","url(/images/accordion/arrow.png) no-repeat left center");
+            $(".fam li").css("padding","5px 16px");
          break;
     }
 }
